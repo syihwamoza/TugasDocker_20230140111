@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Controller
 public class UserController {
@@ -47,7 +48,7 @@ public class UserController {
 
     @PostMapping("/save")
     public String save(@RequestParam String nama, @RequestParam String nim, @RequestParam String jenisKelamin) {
-        listMahasiswa.add(new User(nama, nim, jenisKelamin));
+        listMahasiswa.add(new User( UUID.randomUUID().toString(),nama, nim, jenisKelamin));
         return "redirect:/home";
     }
 
